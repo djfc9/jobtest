@@ -1,0 +1,7 @@
+
+Para probar este codigo se debe configurar la base de datos con el archivo jobtest.sql 
+nombre de la base de datos: jobtest 
+clave: 123456
+nombre de usuario: dionny
+
+url: http://localhost/test/listarInmuebles.php

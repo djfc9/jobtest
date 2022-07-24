@@ -1,0 +1,32 @@
+$sql = "INSERT INTO `habitaciones` (`id_habitacion`, `nombre`) VALUES (NULL, \'Sencilla\')";
+
+
+///aqui traigo todos los inmuebles con las primeras tres letras que coincidan ordenados por nombre
+SELECT * FROM `inmuebles` WHERE nombre LIKE '%pla%' ORDER BY nombre
+
+
+
+
+SELECT id, nombre, tipoInmueble.nombre, estrellas, ubicacion, habitaciones.nombre, apartamentos, capacidad
+FROM `inmuebles` WHERE nombre LIKE '%pla%' ORDER BY nombre
+
+
+
+
+SELECT id, inmuebles.nombre, ti.nombre, estrellas, ubicacion, h.nombre, apartamentos, capacidad
+FROM `inmuebles`, tipoInmueble ti, habitaciones h 
+WHERE nombre LIKE '%pla%' AND ti.id_tipo = id_tipo
+ORDER BY inmuebles.nombre
+
+
+//creo que es esta
+SELECT id, nombre, ti.tipo, estrellas, ubicacion, h.estilo, apartamentos, capacidad FROM `inmuebles`, tipoInmueble ti, habitaciones h WHERE nombre LIKE '%pla%' AND ti.id_tipo = inmuebles.id_tipo AND h.id_habitacion = inmuebles.id_habitacion ORDER BY nombre
+
+
+Esta es
+
+SELECT id, nombre, ti.tipo tipoInmueble, estrellas, ubicacion, h.estilo tipoHabitacion, apartamentos, capacidad FROM inmuebles i, tipoInmueble ti, habitaciones h WHERE nombre LIKE '%pla%' AND ti.id_tipo = i.id_tipo AND h.id_habitacion = i.id_habitacion ORDER BY nombre
+
+
+Esta con Join
+SELECT id, nombre, tipoInmueble.tipo tipoInmueble, estrellas, ubicacion, habitaciones.estilo tipoHabitacion, apartamentos, capacidad FROM inmuebles JOIN tipoInmueble ON tipoInmueble.id_tipo = inmuebles.id_tipo JOIN habitaciones ON habitaciones.id_habitacion = inmuebles.id_habitacion WHERE nombre LIKE '%pla%' ORDER BY nombre
